@@ -34,7 +34,7 @@ if(isset($_POST['inscription'])) {
             $requete->closeCursor();
 
             // Redirection vers la page de connexion
-            header("Location: connexion.php");
+            header("Location: index.php");
             exit;
         }
     }

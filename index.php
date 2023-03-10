@@ -42,7 +42,6 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -68,3 +67,4 @@ if (isset($_POST['login'])) {
 <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a>.</p>
 </body>
 </html>
+
