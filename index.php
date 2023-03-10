@@ -2,12 +2,7 @@
 //Connexion a la bd
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=bd_authentification;charset=utf8', 'root', '');
-    $status = $bdd->getAttribute(PDO::ATTR_CONNECTION_STATUS);
-    if ($status === 'connected') {
-        echo 'L\'utilisateur est connecté à la base de données.';
-    } else {
-        echo 'L\'utilisateur n\'est pas connecté à la base de données.';
-    }
+    echo 'Connexion réussie à la base de données.';
 } catch (PDOException $e) {
     echo 'Erreur : ' . $e->getMessage();
 }
