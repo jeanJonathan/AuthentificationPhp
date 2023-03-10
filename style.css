@@ -1,0 +1,48 @@
+/* Style pour le formulaire */
+form {
+    width: 250px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #f7f7f7;
+}
+
+/* Style pour les titres */
+h1 {
+    text-align: center;
+}
+
+/* Style pour les labels */
+label {
+    display: block;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+/* Style pour les champs de saisie */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* Style pour le bouton */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
