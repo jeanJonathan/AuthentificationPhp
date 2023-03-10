@@ -1,6 +1,16 @@
 <?php
 //Connexion a la bd
-$bdd = new PDO('mysql:host=localhost;dbname=bd_authentification;charset=utf8', 'root', 'mot_de_passe');
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=bd_authentification;charset=utf8', 'root', '');
+    $status = $bdd->getAttribute(PDO::ATTR_CONNECTION_STATUS);
+    if ($status === 'connected') {
+        echo 'L\'utilisateur est connecté à la base de données.';
+    } else {
+        echo 'L\'utilisateur n\'est pas connecté à la base de données.';
+    }
+} catch (PDOException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
 
 ?>
 <!DOCTYPE html>
