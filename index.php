@@ -1,5 +1,5 @@
 <?php
-<!---Connexion a la bd --->
+//Connexion a la bd
 $bdd = new PDO('mysql:host=localhost;dbname=bd_authentification;charset=utf8', 'root', 'mot_de_passe');
 
 ?>
