@@ -1,3 +1,7 @@
+<!---Connexion a la bd --->
+$bdd = new PDO('mysql:host=localhost;dbname=bd_authentification;charset=utf8', 'root', '');
+
+
 <!DOCTYPE html>
 <html>
 <head>
