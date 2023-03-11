@@ -31,6 +31,14 @@ if (isset($_POST['login'])) {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['mdp'])) {
+            //Implementation de la verification si l'utilisateur est administrateur
+            if ($user['role'] == 'admin') {
+                // Création de la session et redirection vers la page d'administration
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['last_activity'] = time();
+                header("Location: administrateur.php");
+                exit();
+            }
             // Création de la session et redirection vers la page d'accueil
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['last_activity'] = time();
