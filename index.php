@@ -2,7 +2,7 @@
 // Démarrage de la session
 session_start();
 
-// Vérification si l'utilisateur est déjà connecté
+// Vérification si l'utilisateur est déjà connecté technique d'authentification
 if (isset($_SESSION['user_id'])) {
     header("Location: welcome.php");
     exit();
