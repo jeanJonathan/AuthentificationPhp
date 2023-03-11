@@ -3,7 +3,7 @@
 function dbConnect()
 {
     $dbHost = 'localhost';
-    $dbName = 'authentification';
+    $dbName = 'bd_authentification';
     $dbUser = 'root';
     $dbPassword = '';
 
@@ -84,3 +84,38 @@ function isUserAdmin($email)
 
     return false;
 }
+
+function isUserLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+function connect() {
+    $dsn = "mysql:host=localhost;dbname=bd_authentification";
+    $username = "root";
+    $password = "";
+
+    try {
+        $db = new PDO($dsn, $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $db;
+    } catch (PDOException $e) {
+        die("Connection failed: " . $e->getMessage());
+    }
+}
+function getUserById($id) {
+    $db = connect();
+
+    $stmt = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}
+function deleteUserById($id) {
+    $db = dbConnect();
+    $stmt = $db->prepare("DELETE FROM utilisateurs WHERE id = ?");
+    $stmt->execute([$id]);
+}
+
+
