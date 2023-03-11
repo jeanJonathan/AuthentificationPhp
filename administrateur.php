@@ -28,6 +28,10 @@ $nom = $user['nom'];
 <body>
 <h1>Bienvenue Administrateur : <?php echo $nom; ?></h1>
 <p>Vous êtes connecté en tant qu'administrateur. Vous avez accès à certaines fonctionnalités réservées aux administrateurs.</p>
-<p><a href="index.php">Se déconnecter</a></p>
+<p>
+    <a href="gestion_sauvegarde.php">Gestion des sauvegardes</a> |
+    <a href="gestion_utilisateur.php">Gestion des utilisateurs</a> |
+    <a href="index.php">Se déconnecter</a>
+</p>
 </body>
 </html>
