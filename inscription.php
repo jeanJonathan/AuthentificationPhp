@@ -14,7 +14,6 @@ if(isset($_POST['inscription'])) {
     $prenom = htmlspecialchars($_POST['prenom']);
     $email = htmlspecialchars($_POST['email']);
     $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-
     // Vérification de l'adresse e-mail
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erreur = "Adresse e-mail invalide";
@@ -29,7 +28,7 @@ if(isset($_POST['inscription'])) {
             $erreur = "Cette adresse e-mail est déjà utilisée";
         } else {
             // Insertion des données dans la base de données
-            $requete = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, email, mdp) VALUES(?, ?, ?, ?)");
+            $requete = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, email, mdp, role) VALUES(?, ?, ?, ?, NULL)");
             $requete->execute(array($nom, $prenom, $email, $mdp));
             $requete->closeCursor();
 
@@ -37,6 +36,7 @@ if(isset($_POST['inscription'])) {
             header("Location: index.php");
             exit;
         }
+
     }
 }
 ?>

@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['role'] = 'admin';
                 header("Location: administrateur.php");
                 exit();
-            } elseif ($user['role'] == 'noadmin') {
+            } elseif ($user['role'] == NULL) {
                 // Création de la session et redirection vers la page d'accueil
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['last_activity'] = time();
