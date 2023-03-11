@@ -31,19 +31,22 @@ if (isset($_POST['login'])) {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['mdp'])) {
-            //Implementation de la verification si l'utilisateur est administrateur
+            // Vérification si l'utilisateur est administrateur
             if ($user['role'] == 'admin') {
                 // Création de la session et redirection vers la page d'administration
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['last_activity'] = time();
+                $_SESSION['role'] = 'admin';
                 header("Location: administrateur.php");
                 exit();
+            } elseif ($user['role'] == 'noadmin') {
+                // Création de la session et redirection vers la page d'accueil
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['last_activity'] = time();
+                $_SESSION['role'] = 'noadmin';
+                header("Location: welcome.php");
+                exit();
             }
-            // Création de la session et redirection vers la page d'accueil
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['last_activity'] = time();
-            header("Location: welcome.php");
-            exit();
         } else {
             $message = "Adresse e-mail ou mot de passe incorrect.";
         }
